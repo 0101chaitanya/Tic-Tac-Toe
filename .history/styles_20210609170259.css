@@ -1,0 +1,9 @@
+:root{
+color:blue;
+
+}
+#gameSquare{
+    border-style: solid;
+    width:70%;
+    height:10rem;
+}

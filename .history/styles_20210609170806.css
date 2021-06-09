@@ -1,0 +1,17 @@
+:root{
+color:blue;
+
+}
+#gameSquare{
+    border-style: solid;
+    width:70%;
+    height:10rem;
+display:block;
+margin:auto;
+}
+#gameSquare>div:nth-child(n){
+    border-style: solid;
+    width:2rem;
+    height:2rem;
+    
+}

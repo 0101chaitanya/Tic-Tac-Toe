@@ -1,0 +1,40 @@
+@media  screen and (max-width: 400px){
+    :root{
+        color:blue;
+            
+}
+
+}
+@media  screen and (max-width: 400px){
+    :root{
+        color:rgb(30, 255, 0);
+            
+}
+
+}@media  screen and (max-width: 400px){
+    :root{
+        color:rgb(255, 0, 221);
+            
+}
+
+}
+#gameSquare{
+    border-style: solid;
+    width:fit-content;
+    height:fit-content;
+display:block;
+margin:auto;
+}
+#gameSquare>div:nth-child(n){
+    border-style: solid;
+    display:flex;
+    width:fit-content;
+    height:fit-content;
+    
+}
+#gameSquare>div:nth-child(n)>div:nth-child(n){
+    border-style: solid;
+    width:7rem;
+    height:3rem;
+    
+}

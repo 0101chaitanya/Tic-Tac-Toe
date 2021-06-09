@@ -1,0 +1,24 @@
+:root{
+color:blue;
+
+}
+#gameSquare{
+    border-style: solid;
+    width:auto;
+    height:auto;
+display:block;
+margin:auto;
+}
+#gameSquare>div:nth-child(n){
+    border-style: solid;
+    display:flex;
+    width:fit-content;
+    height:fit-content;
+    
+}
+#gameSquare>div:nth-child(n)>div:nth-child(n){
+    border-style: solid;
+    width:7rem;
+    height:3rem;
+    
+}
