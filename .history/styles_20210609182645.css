@@ -27,7 +27,7 @@ font-weight: bold;
     display:block;
     margin:auto;
 }
-#gameSquare>section:nth-child(n){
+#gameSquare>div:nth-child(n){
     /* border-style: solid;
      */width:min-content;
     height:min-content;
@@ -35,7 +35,7 @@ font-weight: bold;
     justify-content:center;
     align-items:center;
 }
-#gameSquare>section:nth-child(n)>div:nth-child(n){
+#gameSquare>div:nth-child(n)>div:nth-child(n){
     display:block;
     margin: auto;
     width:3.8rem;
@@ -43,20 +43,20 @@ font-weight: bold;
 border-style:solid;
 border-width: 0.15rem;
 }
-#gameSquare>section:nth-child(1)>div:nth-child(1){
-    border-top-left-radius : 0.5rem;
+#gameSquare>div:nth-child(1)>div:nth-child(1){
+    border-top-left-radius : 1rem;
 
 }
-#gameSquare>section:nth-child(1)>div:nth-child(3){
-    border-top-right-radius : 0.5rem;
+#gameSquare>div:nth-child(1)>div:nth-child(3){
+    border-top-right-radius : 1rem;
 
 }
-#gameSquare>section:nth-child(3)>div:nth-child(1){
+#gameSquare>div:nth-child(3)>div:nth-child(1){
     border-bottom-left-radius : 0.5rem;
 
 }
 
-#gameSquare>section:nth-child(3)>div:nth-child(3){
-    border-bottom-right-radius : 0.5rem;
+#gameSquare>div:nth-child(1)>div:nth-child(1){
+    border-top-left-radius : 1rem;
 
-}  
+}

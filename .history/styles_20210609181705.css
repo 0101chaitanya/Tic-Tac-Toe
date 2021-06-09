@@ -1,0 +1,46 @@
+:root{
+    text-align: center;
+font-weight: bold;
+}
+@media  screen and (max-width: 400px){
+    :root{
+        font-size: 14px;
+}
+
+}
+@media  screen and (min-width: 401px) and (max-width: 700px){
+    :root{
+        font-size: 18px;
+}
+
+
+}@media  screen and (min-width: 701px) {
+    :root{
+        font-size:25px;
+}
+
+}
+
+#gameSquare{
+    border-style: solid;
+    width:min-content;
+    height:min-content;
+    display:block;
+    margin:auto;
+}
+#gameSquare>div:nth-child(n){
+    border-style: solid;
+    width:min-content;
+    height:min-content;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+#gameSquare>div:nth-child(n)>div:nth-child(n){
+    display:block;
+    margin: auto;
+    border-style: solid;
+    width:3.8rem;
+    height:3.8rem;
+border-style:inset;
+}
