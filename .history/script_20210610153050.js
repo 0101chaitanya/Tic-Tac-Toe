@@ -8,7 +8,7 @@ let eventFun = (function() {
     });
 
     function setUser(x) {
-        return sessionStorage.setItem('user1Selection', x.value);
+        return sessionStorage.setItem('user1Selection', x);
     }
     user1Selection = sessionStorage.getItem('user1Selection');
     user2Selection = (user1Selection === 'X') ? 'O' : 'X';

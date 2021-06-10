@@ -11,8 +11,8 @@
     <h1 id="heading">Tic-Tac-Toe Game</h1>
     <form>
         <label for='radio'>Choose your Character:
-            <input value="O" name="radio" type="radio">O</input>
-            <input value='X' name="radio" type="radio">X</input>
+            <input value="O" name="radio" onclick="setUser(this.value)" type="radio">O</input>
+            <input value='X' name="radio" onclick="setUser(this.value)" type="radio">X</input>
     </form>
     </label>
         <div id="Output">
@@ -20,19 +20,19 @@
         </div>
         <div id="gameSquare">
             <section id="row1">
-                <div class="r1Column1"></div>
-                <div class="rlColumn2"></div>
-                <div class="rlColumn3"></div>
+                <div class="r1Column"></div>
+                <div class="rlColumn"></div>
+                <div class="rlColumn"></div>
             </section>
             <section id="row2">
-                <div class="r2Column1"></div>
-                <div class="r2Column2"></div>
-                <div class="r2Column3"></div>
+                <div class="r2Column"></div>
+                <div class="r2Column"></div>
+                <div class="r2Column"></div>
             </section>
             <section id="row3">
-                <div class="r3Column1"></div>
-                <div class="r3Column2"></div>
-                <div class="r3Column3"></div>
+                <div class="r3Column"></div>
+                <div class="r3Column"></div>
+                <div class="r3Column"></div>
             </section>
         </div>
 </body>

@@ -4,11 +4,11 @@ let eventFun = (function() {
     let user1Selection, user2Selection, runningCharacter;
     let radios = Array.from(document.querySelectorAll('input'));
     radios.forEach((radio) => {
-        radio.addEventListener('click', setUser(radio));
+        radio.addEventListener('click', setUser(radio).bind(this));
     });
 
     function setUser(x) {
-        return sessionStorage.setItem('user1Selection', x.value);
+        return sessionStorage.setItem('user1Selection', x);
     }
     user1Selection = sessionStorage.getItem('user1Selection');
     user2Selection = (user1Selection === 'X') ? 'O' : 'X';

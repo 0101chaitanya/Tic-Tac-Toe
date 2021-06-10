@@ -2,13 +2,9 @@
 let eventFun = (function() {
     //init an object and return // play again 
     let user1Selection, user2Selection, runningCharacter;
-    let radios = Array.from(document.querySelectorAll('input'));
-    radios.forEach((radio) => {
-        radio.addEventListener('click', setUser(radio));
-    });
 
     function setUser(x) {
-        return sessionStorage.setItem('user1Selection', x.value);
+        return sessionStorage.setItem('user1Selection', input);
     }
     user1Selection = sessionStorage.getItem('user1Selection');
     user2Selection = (user1Selection === 'X') ? 'O' : 'X';
@@ -27,5 +23,5 @@ let eventFun = (function() {
 
     return { user1Selection, user2Selection, array, setOutput };
 })();
-console.log(eventFun);
+//console.log(eventFun.setOutput());
 //console.log(document.getElementById('gameSquare').querySelectorAll('div'));

@@ -21,9 +21,8 @@
     }
 }
 
-label>input {
+label>input[1] {
     color: red;
-    border: 1px solid;
 }
 
 #gameSquare {
