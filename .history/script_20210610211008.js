@@ -17,13 +17,12 @@ let eventFun = (function () {
     let setOutput = function (e, index) {
 
         //e.target.textContent = ;
-        window[`${index}` + 'text'] = runningCharacter;
-        console.log(window[`${index}` + 'text']);
+        window[`${index}` + 'txt'] = runningCharacter;
+        console.log(window[`${index}` + 'txt']);
         localStorage.setItem(`${index}` + 'text', window[`${index}` + 'text']);
+        setContent(index);
         e.target.removeEventListener('click', e => setOutput(e));
         switchRunChar();
-        setContent(index);
-        document.querySelector('#gameSquare').submit('gameSquare').submit();
     };
     function setContent(index) {
         array[index].textContent = localStorage.getItem(`${index}` + 'text');
@@ -32,18 +31,18 @@ let eventFun = (function () {
 
     array.forEach((item, index) => {
         item.addEventListener('click', e => setOutput(e, index), { once: true });
-        //   console.log(index);
+        console.log(index);
     });
     let stack = 0;
     let a1 = [0, 1, 2];
     checkWin(...a1);//...a1
     function checkWin(x, y, z) {
         //  let checkBox = "";
-        //return array[x].textContent + array[y].textContent + array[z].textContent;
-        /*   console.log(`${checkBox} won`);
-  
-          if (checkBox === 'XXX' || checkBox === 'OOO') {
-          }*/
+        return array[x].textContent + array[y].textContent + array[z].textContent;
+        console.log(`${checkBox} won`);
+
+        if (checkBox === 'XXX' || checkBox === 'OOO') {
+        }
     }
 
     return { checkWin, user1Selection, user2Selection, array, setOutput };

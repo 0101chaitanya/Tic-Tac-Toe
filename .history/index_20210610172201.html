@@ -8,38 +8,37 @@
 </head>
 
 <body>
+    <script type="text/javascript" src="script.js"></script>
 
     <h1 id="heading">Tic-Tac-Toe Game</h1>
     <form>
         Choose your Character:
         <input value="O" name="radio" onclick="eventFun.setUser(this)" type="radio">
         <label for="O">O</label>
-        <input value="X" name="radio" onclick="eventFun.setUser(this)" type="radio">
+        <input value="X" name="radio" onclick="EventFun.setUser(this)" type="radio">
         <label for="X">X</label>
 
     </form>
     <div id="Output">
         <p>Result:</p>
     </div>
-    <button id='do'>do</button>
-    <form id="gameSquare">
+    <div id="gameSquare">
         <section id="row1">
-            <div id="r1Column1"></div>
-            <div id="rlColumn2"></div>
-            <div id="rlColumn3"></div>
+            <div class="r1Column1"></div>
+            <div class="rlColumn2"></div>
+            <div class="rlColumn3"></div>
         </section>
         <section id="row2">
-            <div id="r2Column1"></div>
-            <div id="r2Column2"></div>
-            <div id="r2Column3"></div>
+            <div class="r2Column1"></div>
+            <div class="r2Column2"></div>
+            <div class="r2Column3"></div>
         </section>
         <section id="row3">
-            <div id="r3Column1"></div>
-            <div id="r3Column2"></div>
-            <div id="r3Column3"></div>
+            <div class="r3Column1"></div>
+            <div class="r3Column2"></div>
+            <div class="r3Column3"></div>
         </section>
-    </form>
+    </div>
 </body>
-<script type="text/javascript" src="script.js"></script>
 
 </html>

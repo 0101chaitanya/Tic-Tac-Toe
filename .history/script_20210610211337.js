@@ -23,7 +23,7 @@ let eventFun = (function () {
         e.target.removeEventListener('click', e => setOutput(e));
         switchRunChar();
         setContent(index);
-        document.querySelector('#gameSquare').submit('gameSquare').submit();
+        document.getElementById('gameSquare').submit();
     };
     function setContent(index) {
         array[index].textContent = localStorage.getItem(`${index}` + 'text');
@@ -39,11 +39,11 @@ let eventFun = (function () {
     checkWin(...a1);//...a1
     function checkWin(x, y, z) {
         //  let checkBox = "";
-        //return array[x].textContent + array[y].textContent + array[z].textContent;
-        /*   console.log(`${checkBox} won`);
-  
-          if (checkBox === 'XXX' || checkBox === 'OOO') {
-          }*/
+        return array[x].textContent + array[y].textContent + array[z].textContent;
+        console.log(`${checkBox} won`);
+
+        if (checkBox === 'XXX' || checkBox === 'OOO') {
+        }
     }
 
     return { checkWin, user1Selection, user2Selection, array, setOutput };

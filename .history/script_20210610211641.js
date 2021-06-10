@@ -23,7 +23,7 @@ let eventFun = (function () {
         e.target.removeEventListener('click', e => setOutput(e));
         switchRunChar();
         setContent(index);
-        document.querySelector('#gameSquare').submit('gameSquare').submit();
+        document.querySelector(`form[id='gameSquare']`).submit('gameSquare').submit();
     };
     function setContent(index) {
         array[index].textContent = localStorage.getItem(`${index}` + 'text');
