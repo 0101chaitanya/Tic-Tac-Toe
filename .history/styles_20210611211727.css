@@ -2,9 +2,7 @@
     text-align: center;
     font-weight: bold;
 }
-*{
-    box-sizing: border-box;
-}
+
 @media screen and (max-width: 400px) {
      :root {
         font-size: 14px;
@@ -22,14 +20,7 @@
         font-size: 25px;
     }
 }
-body{
-    /* filter: saturate(180%) blur(20rem);    
-   filter:  blur(0);    
-  
-    */
-    backdrop-filter:blur(20rem);
-  
-}
+
 label>input {
     color: red;
     border: 1px solid;
@@ -45,7 +36,7 @@ label>input {
 #gameSquare {
     width: min-content;
     height: min-content;
-    display: none;
+    display: block;
     margin: auto;
 }
 
@@ -84,19 +75,13 @@ label>input {
     border-bottom-right-radius: 0.5rem;
 }
 #ResultBox {
-     height: 6rem;
-    width: 20rem;
-    display: block;
-   margin: auto ;
-   margin-top:3rem;
-   background-color: rgb(78, 82, 95) !important;
-   color: white !important;
-  
-   opacity: 1;
+    padding: 20px;
+    background-color: #f44336;
+    color: white;
+    opacity: 1;
     transition: opacity 0.6s;
     margin-bottom: 15px;
-    border-radius: 4rem;
-}
+  }
   #resultOut {background-color: #04AA6D;}
   #closebtn {
     margin-left: 15px;
@@ -111,4 +96,4 @@ label>input {
   
 .closebtn:hover {
     color: black;
-}
+  

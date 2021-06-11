@@ -46,20 +46,9 @@ let eventFun = (function () {
         });
         return arr;
     }
-    function send(input) {
+    send(input){
         let div = document.getElementById('ResultBox');
         div.style.display = 'block';
-        document.getElementById('gameSquare').style.display = 'none';
-        document.getElementById('resultOut').textContent = input;
-        let close = document.getElementById('closebtn');
-        close.onclick = function () {
-            let div = this.parentElement;
-            div.style.opacity = '0';
-            setTimeout(function () {
-                div.style.display = "none";
-            }, 600);
-        };
-
     }
     function check(input) {
         input.forEach((item) => {
@@ -120,5 +109,15 @@ let eventFun = (function () {
         item.textContent = "";
         item.addEventListener("click", (e) => setOutput(e, index), { once: true });
     });
+    let close = document.getElementById('closebtn');
+    close.onclick = function () {
+        let div = this.parentElement;
+        div.style.opacity = '0';
+        setTimeout(function () {
+            div.style.display = "none";
+        }, 600);
+    }
+
+
     return { result, array, setOutput, setUser, count };
 })();

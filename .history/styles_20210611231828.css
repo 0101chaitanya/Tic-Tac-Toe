@@ -23,12 +23,7 @@
     }
 }
 body{
-    /* filter: saturate(180%) blur(20rem);    
-   filter:  blur(0);    
-  
-    */
-    backdrop-filter:blur(20rem);
-  
+    filter:blur(1rem);
 }
 label>input {
     color: red;
@@ -84,15 +79,13 @@ label>input {
     border-bottom-right-radius: 0.5rem;
 }
 #ResultBox {
-     height: 6rem;
+    height: 6rem;
     width: 20rem;
     display: block;
    margin: auto ;
    margin-top:3rem;
-   background-color: rgb(78, 82, 95) !important;
-   color: white !important;
-  
-   opacity: 1;
+   background-color: rgb(0,0,0);color: white;
+    opacity: 1;
     transition: opacity 0.6s;
     margin-bottom: 15px;
     border-radius: 4rem;
@@ -111,4 +104,4 @@ label>input {
   
 .closebtn:hover {
     color: black;
-}
+  

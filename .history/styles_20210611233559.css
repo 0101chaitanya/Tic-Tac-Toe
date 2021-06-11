@@ -24,11 +24,7 @@
 }
 body{
     /* filter: saturate(180%) blur(20rem);    
-   filter:  blur(0);    
-  
-    */
-    backdrop-filter:blur(20rem);
-  
+   */
 }
 label>input {
     color: red;
@@ -84,7 +80,9 @@ label>input {
     border-bottom-right-radius: 0.5rem;
 }
 #ResultBox {
-     height: 6rem;
+   filter:  blur(0);    
+  backdrop-filter:blur(20px);
+    height: 6rem;
     width: 20rem;
     display: block;
    margin: auto ;

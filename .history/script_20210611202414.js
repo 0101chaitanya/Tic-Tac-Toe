@@ -2,6 +2,8 @@
 let eventFun = (function () {
     let user1Selection, user2Selection, runningCharacter;
     let runningNumber = 0, i, result;
+    ;
+
     function setUser(given) {
         localStorage.setItem("user1Selection", given.value);
         document.querySelector(`form`).submit();
@@ -10,8 +12,6 @@ let eventFun = (function () {
     user2Selection =
         user1Selection != null ? (user1Selection === "X" ? "O" : "X") : null;
     runningCharacter = user1Selection;
-    document.getElementById('1').textContent += ` ` + user1Selection || '';
-    document.getElementById('2').textContent += ` ` + user2Selection || '';
 
     let array = Array.from(
         document.getElementById("gameSquare").querySelectorAll("div")
@@ -38,6 +38,7 @@ let eventFun = (function () {
     let diagonalArray;
     function parser(arrayInput) {
         let arr = arrayInput.map((item, index) => {
+            let stack = 0;
             let res = item.reduce((stack, item) => {
                 stack += item;
                 return stack;
@@ -46,29 +47,14 @@ let eventFun = (function () {
         });
         return arr;
     }
-    function send(input) {
-        let div = document.getElementById('ResultBox');
-        div.style.display = 'block';
-        document.getElementById('gameSquare').style.display = 'none';
-        document.getElementById('resultOut').textContent = input;
-        let close = document.getElementById('closebtn');
-        close.onclick = function () {
-            let div = this.parentElement;
-            div.style.opacity = '0';
-            setTimeout(function () {
-                div.style.display = "none";
-            }, 600);
-        };
-
-    }
     function check(input) {
         input.forEach((item) => {
             if (item === 3) {
                 result = item;
-                send("Player 2 won");
+                alert("Player 2 won");
             } else if (item === 0) {
                 result = item;
-                send("Player 1 won");
+                alert("Player 1 won");
             }
         });
     }
@@ -102,7 +88,7 @@ let eventFun = (function () {
             });
             console.table(newArray);
             if (result == undefined) {
-                send("draw");
+                alert("draw");
             }
         }
     }
@@ -120,5 +106,6 @@ let eventFun = (function () {
         item.textContent = "";
         item.addEventListener("click", (e) => setOutput(e, index), { once: true });
     });
+
     return { result, array, setOutput, setUser, count };
 })();

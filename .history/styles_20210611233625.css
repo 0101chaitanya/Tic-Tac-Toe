@@ -27,7 +27,7 @@ body{
    filter:  blur(0);    
   
     */
-    backdrop-filter:blur(20rem);
+    backdrop-filter:blur(20px);
   
 }
 label>input {
