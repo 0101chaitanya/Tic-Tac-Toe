@@ -12,7 +12,7 @@
 <body>
     <div id='block1'>
         <h1 id="heading">Tic-Tac-Toe Game</h1>
-        <form id='userForm'>
+        <form id='form'>
             Choose your Character:
             <input value="O" name="radio" onclick="eventFun.setUser(this)" type="radio">
             <label for="O">O</label>
@@ -22,8 +22,8 @@
         </form>
         <form id='aiForm'>
             Use AI as player 2 :
-            <input id="noAi" value="noAi" name="ai" onclick="eventFun.setAi(this)" type="radio">
-            <label id="yesAi" for="">No</label>
+            <input value="noAi" name="ai" onclick="eventFun.setAi(this)" type="radio">
+            <label for="" selected>No</label>
             <input value="yesAi" name="ai" onclick="eventFun.setAi(this)" type="radio">
             <label for="X">Yes</label>
 

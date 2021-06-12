@@ -3,8 +3,8 @@
 let eventFun = (function () {
     let user1Selection, user2Selection, runningCharacter;
 
-    let runningNumber;
-    let result;
+    let runningNumber,
+        result;
     let newArray;
     let count;
 
@@ -35,7 +35,8 @@ let eventFun = (function () {
     function init() {
         runningNumber = 0;
         user1Selection = localStorage.getItem("user1") || null;
-        user2Selection = user1Selection != null ? (user1Selection === "X" ? "O" : "X") : null;
+        user2Selection =
+            user1Selection != null ? (user1Selection === "X" ? "O" : "X") : null;
         runningCharacter = user1Selection;
 
         (localStorage.getItem("p1") !== null) ? document.getElementById('p1').textContent = localStorage.getItem("p1") + " choose: " + user1Selection : document.getElementById('p1').textContent += ` ` + user1Selection || ' ';
@@ -44,45 +45,89 @@ let eventFun = (function () {
         array = Array.from(
             document.getElementById("gameSquare").querySelectorAll("div")
         );
-        newArray = [...Array(array.length).keys()];
+        newArray = Array(9).fill(Array.keys);
         console.log(newArray);
         count = 0;
+
         horizontalArray = undefined;
         verticalArray = undefined;
         diagonalArray = undefined;
         eventListen();
-    } function setAi(given) {
-        localStorage.setItem("Ai", given.value);
-
-        document.querySelector(`#aiForm`).submit();
     }
-
+    if (localStorage.getItem('Ai') == `yesAi`) {
+        initAi(user2Selection);
+    }
     if (localStorage.getItem("user1") !== null) {
         init();
-        if (localStorage.getItem('Ai') == `yesAi`) {
-            initAi(user2Selection);
-        }
+    }
+
+    function reset() {
+        init();
+        document.getElementById('p1').textContent = `Player 1 choose: `;
+
+        document.getElementById('p2').textContent = `Player 2 : `;
+        localStorage.clear();
+        location.reload();
 
     }
-    function eventListen() {
-        array.forEach((item, index) => {
-            item.textContent = "";
-            item.addEventListener("click", (e) => setOutput(e, index), { once: true });
-        });
-    }
-    let setOutput = function (e, index) {
-        e.target.textContent = runningCharacter;
-        e.target.removeEventListener("click", (e) => setOutput(e));
-        newArray.splice(index, 1, runningNumber);
-        switchRunChar();
-        checkWin();
 
-        count++;
-    };
     function switchRunChar() {
         runningCharacter = runningCharacter === "O" ? "X" : "O";
         runningNumber = runningNumber === 0 ? 1 : 0;
     }
+
+    function arrayCreator(index, incrementer) {
+        return [
+            newArray[index],
+            newArray[index + incrementer],
+            newArray[index + 2 * incrementer],
+        ];
+    }
+
+    function parser(arrayInput) {
+        let arr = arrayInput.map((item, index) => {
+            let res = item.reduce((stack, item) => {
+                stack += item;
+                return stack;
+            });
+            return res;
+        });
+        return arr;
+    }
+
+    function send(input) {
+        let block1 = document.getElementById('block1');
+        block1.style.filter = 'blur(0.5rem)';
+        document.getElementById('ResultBox').style.display = 'block';
+        document.getElementById('resultOut').textContent = input;
+        let close = document.getElementById('closebtn');
+        close.onclick = function () {
+            localStorage.clear();
+            //  init();
+            document.getElementById('gameSquare').submit();
+            let div = this.parentElement;
+            div.style.opacity = '0';
+            setTimeout(function () {
+                document.getElementById('ResultBox').style.display = 'none';
+                block1.style.filter = 'blur(0.0rem)';
+
+            }, 60);
+        };
+
+    }
+
+    function check(input) {
+        input.forEach((item) => {
+            if (item === 3) {
+                result = item;
+                send("Player 2 won");
+            } else if (item === 0) {
+                result = item;
+                send("Player 1 won");
+            }
+        });
+    }
+
     function checkWin() {
         horizontalArray = [
             arrayCreator(0, 1),
@@ -117,72 +162,23 @@ let eventFun = (function () {
             }
         }
     }
-    function arrayCreator(index, incrementer) {
-        return [
-            newArray[index],
-            newArray[index + incrementer],
-            newArray[index + 2 * incrementer],
-        ];
-    }
-    function parser(arrayInput) {
-        let arr = arrayInput.map((item) => {
-            let res = item.reduce((stack, item) => {
-                stack += item;
-                return stack;
-            });
-            return res;
-        });
-        return arr;
-    }
 
-    function check(input) {
-        input.forEach((item) => {
-            if (item === 3) {
-                result = item;
-                send("Player 2 won");
-            } else if (item === 0) {
-                result = item;
-                send("Player 1 won");
-            }
+    let setOutput = function (e, index) {
+        e.target.textContent = runningCharacter;
+        e.target.removeEventListener("click", (e) => setOutput(e));
+        newArray.splice(index, 1, runningNumber);
+        switchRunChar();
+        checkWin();
+
+        count++;
+    };
+
+    function eventListen() {
+        array.forEach((item, index) => {
+            item.textContent = "";
+            item.addEventListener("click", (e) => setOutput(e, index), { once: true });
         });
     }
-    function send(input) {
-        let block1 = document.getElementById('block1');
-        block1.style.filter = 'blur(0.5rem)';
-        document.getElementById('ResultBox').style.display = 'block';
-        document.getElementById('resultOut').textContent = input;
-        let close = document.getElementById('closebtn');
-        close.onclick = function () {
-            localStorage.clear();
-            //  init();
-            document.getElementById('gameSquare').submit();
-            let div = this.parentElement;
-            div.style.opacity = '0';
-            setTimeout(function () {
-                document.getElementById('ResultBox').style.display = 'none';
-                block1.style.filter = 'blur(0.0rem)';
-            }, 60);
-        };
-    }
 
-
-    function reset() {
-        init();
-        document.getElementById('p1').textContent = `Player 1 choose: `;
-
-        document.getElementById('p2').textContent = `Player 2 : `;
-        localStorage.clear();
-        location.reload();
-
-    }
-
-
-
-
-
-
-    function initAi(user2Selection) {
-
-    }
-    return { setUser, player, reset, setAi };
+    return { setUser, player, reset };
 })();

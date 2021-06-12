@@ -35,7 +35,8 @@ let eventFun = (function () {
     function init() {
         runningNumber = 0;
         user1Selection = localStorage.getItem("user1") || null;
-        user2Selection = user1Selection != null ? (user1Selection === "X" ? "O" : "X") : null;
+        user2Selection =
+            user1Selection != null ? (user1Selection === "X" ? "O" : "X") : null;
         runningCharacter = user1Selection;
 
         (localStorage.getItem("p1") !== null) ? document.getElementById('p1').textContent = localStorage.getItem("p1") + " choose: " + user1Selection : document.getElementById('p1').textContent += ` ` + user1Selection || ' ';
@@ -47,6 +48,7 @@ let eventFun = (function () {
         newArray = [...Array(array.length).keys()];
         console.log(newArray);
         count = 0;
+
         horizontalArray = undefined;
         verticalArray = undefined;
         diagonalArray = undefined;
@@ -125,7 +127,7 @@ let eventFun = (function () {
         ];
     }
     function parser(arrayInput) {
-        let arr = arrayInput.map((item) => {
+        let arr = arrayInput.map((item, index) => {
             let res = item.reduce((stack, item) => {
                 stack += item;
                 return stack;
@@ -161,8 +163,10 @@ let eventFun = (function () {
             setTimeout(function () {
                 document.getElementById('ResultBox').style.display = 'none';
                 block1.style.filter = 'blur(0.0rem)';
+
             }, 60);
         };
+
     }
 
 

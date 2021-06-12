@@ -47,6 +47,7 @@ let eventFun = (function () {
         newArray = [...Array(array.length).keys()];
         console.log(newArray);
         count = 0;
+
         horizontalArray = undefined;
         verticalArray = undefined;
         diagonalArray = undefined;
@@ -125,7 +126,7 @@ let eventFun = (function () {
         ];
     }
     function parser(arrayInput) {
-        let arr = arrayInput.map((item) => {
+        let arr = arrayInput.map((item, index) => {
             let res = item.reduce((stack, item) => {
                 stack += item;
                 return stack;
