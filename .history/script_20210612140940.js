@@ -23,20 +23,18 @@ let eventFun = (function() {
     function player(input) {
         //let player$ = document.getElementById(input.value);
         let x = prompt('Enter player name');
-        localStorage.setItem(`${input}`, x);
-        location.reload();
+        localStorage.setItem(`${input}`, input)
     }
 
     function init() {
         runningNumber = 0;
-        user1Selection = localStorage.getItem("user1") || null;
+        user1Selection = localStorage.getItem("user1");
         user2Selection =
             user1Selection != null ? (user1Selection === "X" ? "O" : "X") : null;
         runningCharacter = user1Selection;
 
         (localStorage.getItem("p1") !== null) ? document.getElementById('p1').textContent = localStorage.getItem("p1") + " choose: " + user1Selection: document.getElementById('p1').textContent += ` ` + user1Selection || ' ';
-        (localStorage.getItem("p2") !== null) ? document.getElementById('p2').textContent = localStorage.getItem("p2") + " : " + user2Selection: document.getElementById('p2').textContent += ` ` + user2Selection || ' ';
-
+        document.getElementById('p2').textContent += ` ` + user2Selection || ' ';
         array = Array.from(
             document.getElementById("gameSquare").querySelectorAll("div")
         );
@@ -53,15 +51,6 @@ let eventFun = (function() {
         init();
     }
 
-    function reset() {
-        init();
-        document.getElementById('p1').textContent = `Player 1 choose: `;
-
-        document.getElementById('p2').textContent = `Player 2 : `;
-        localStorage.clear();
-        location.reload();
-
-    }
 
     function switchRunChar() {
         runningCharacter = runningCharacter === "O" ? "X" : "O";
@@ -171,5 +160,5 @@ let eventFun = (function() {
             item.addEventListener("click", (e) => setOutput(e, index), { once: true });
         });
     }
-    return { setUser, player, reset };
+    return { setUser };
 })();

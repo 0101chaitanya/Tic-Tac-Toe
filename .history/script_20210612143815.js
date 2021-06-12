@@ -55,10 +55,6 @@ let eventFun = (function() {
 
     function reset() {
         init();
-        document.getElementById('p1').textContent = `Player 1 choose: `;
-
-        document.getElementById('p2').textContent = `Player 2 : `;
-        localStorage.clear();
         location.reload();
 
     }
@@ -171,5 +167,5 @@ let eventFun = (function() {
             item.addEventListener("click", (e) => setOutput(e, index), { once: true });
         });
     }
-    return { setUser, player, reset };
+    return { setUser, player };
 })();

@@ -43,29 +43,13 @@ label>input {
 }
 
 #player {
+    display: block;
     margin: 1rem auto 1rem auto;
-    display: block;
+    display: flexbox;
 }
 
-#player>button {
-    margin: 0rem 1rem 0.5rem 1rem;
-    width: fit-content;
-    height: fit-content;
-    border: 0.1rem solid;
-    padding: 0.5rem;
-    border-radius: 0.8rem;
-    background: rgb(212, 166, 182);
-}
-
-#reset {
-    width: min-content;
-    height: min-content;
-    display: block;
-    margin: 0rem auto 1rem;
-    border: 0.1rem solid;
-    padding: 0.5rem;
-    border-radius: 0.8rem;
-    background: rgb(212, 166, 182);
+#player>input {
+    margin: auto 0.7rem auto 0.7rem;
 }
 
 #gameSquare {
@@ -157,4 +141,10 @@ label>input {
 
 #player>div:nth-child(1)>input {
     color: aqua;
+}
+
+input {
+    width: 8rem;
+    height: 1rem;
+    border: 2px solid;
 }

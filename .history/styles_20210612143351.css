@@ -54,7 +54,14 @@ label>input {
     border: 0.1rem solid;
     padding: 0.5rem;
     border-radius: 0.8rem;
-    background: rgb(212, 166, 182);
+    background: rgb(149, 149, 216);
+}
+
+#gameSquare {
+    width: min-content;
+    height: min-content;
+    display: block;
+    margin: auto;
 }
 
 #reset {
@@ -65,14 +72,6 @@ label>input {
     border: 0.1rem solid;
     padding: 0.5rem;
     border-radius: 0.8rem;
-    background: rgb(212, 166, 182);
-}
-
-#gameSquare {
-    width: min-content;
-    height: min-content;
-    display: block;
-    margin: auto;
 }
 
 #gameSquare>section:nth-child(n) {

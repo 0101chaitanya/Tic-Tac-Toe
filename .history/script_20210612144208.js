@@ -58,7 +58,7 @@ let eventFun = (function() {
         document.getElementById('p1').textContent = `Player 1 choose: `;
 
         document.getElementById('p2').textContent = `Player 2 : `;
-        localStorage.clear();
+
         location.reload();
 
     }

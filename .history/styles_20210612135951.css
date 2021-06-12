@@ -48,24 +48,10 @@ label>input {
 }
 
 #player>button {
-    margin: 0rem 1rem 0.5rem 1rem;
+    margin: auto 2rem auto 2rem;
     width: fit-content;
     height: fit-content;
     border: 0.1rem solid;
-    padding: 0.5rem;
-    border-radius: 0.8rem;
-    background: rgb(212, 166, 182);
-}
-
-#reset {
-    width: min-content;
-    height: min-content;
-    display: block;
-    margin: 0rem auto 1rem;
-    border: 0.1rem solid;
-    padding: 0.5rem;
-    border-radius: 0.8rem;
-    background: rgb(212, 166, 182);
 }
 
 #gameSquare {

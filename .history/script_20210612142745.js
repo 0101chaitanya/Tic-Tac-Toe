@@ -29,7 +29,7 @@ let eventFun = (function() {
 
     function init() {
         runningNumber = 0;
-        user1Selection = localStorage.getItem("user1") || null;
+        user1Selection = localStorage.getItem("user1");
         user2Selection =
             user1Selection != null ? (user1Selection === "X" ? "O" : "X") : null;
         runningCharacter = user1Selection;
@@ -53,15 +53,6 @@ let eventFun = (function() {
         init();
     }
 
-    function reset() {
-        init();
-        document.getElementById('p1').textContent = `Player 1 choose: `;
-
-        document.getElementById('p2').textContent = `Player 2 : `;
-        localStorage.clear();
-        location.reload();
-
-    }
 
     function switchRunChar() {
         runningCharacter = runningCharacter === "O" ? "X" : "O";
@@ -171,5 +162,5 @@ let eventFun = (function() {
             item.addEventListener("click", (e) => setOutput(e, index), { once: true });
         });
     }
-    return { setUser, player, reset };
+    return { setUser, player };
 })();
