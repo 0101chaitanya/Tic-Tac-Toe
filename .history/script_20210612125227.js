@@ -13,44 +13,44 @@ let eventFun = (function() {
     let horizontalArray;
     let verticalArray;
     let diagonalArray;
-    let array;
 
 
-    function setUser(given) {
-        localStorage.setItem("user1", given.value);
-
-        document.querySelector(`form`).submit();
-    }
 
     function init() {
+        function setUser(given) {
+            localStorage.setItem("user1Selection", given.value);
+            document.querySelector(`form`).submit();
+        }
+
         runningNumber = 0;
-        user1Selection = localStorage.getItem("user1");
+        user1Selection = localStorage.getItem("user1Selection");
         user2Selection =
             user1Selection != null ? (user1Selection === "X" ? "O" : "X") : null;
         runningCharacter = user1Selection;
 
         document.getElementById('1').textContent += ` ` + user1Selection || ' ';
         document.getElementById('2').textContent += ` ` + user2Selection || ' ';
-        array = Array.from(
-            document.getElementById("gameSquare").querySelectorAll("div")
-        );
         newArray = Array(array.length).fill();
         count = 0;
 
         horizontalArray = undefined;
         verticalArray = undefined;
         diagonalArray = undefined;
-        eventListen();
+
     }
 
-    if (localStorage.getItem("user1") !== null) {
-        init();
-    }
 
+    let array = Array.from(
+        document.getElementById("gameSquare").querySelectorAll("div")
+    );
 
     function switchRunChar() {
         runningCharacter = runningCharacter === "O" ? "X" : "O";
         runningNumber = runningNumber === 0 ? 1 : 0;
+    }
+
+    function text(i) {
+        return array[i].textContent;
     }
 
     function arrayCreator(index, incrementer) {
@@ -80,15 +80,15 @@ let eventFun = (function() {
         let close = document.getElementById('closebtn');
         close.onclick = function() {
             localStorage.clear();
-            //  init();
+
             document.getElementById('gameSquare').submit();
             let div = this.parentElement;
             div.style.opacity = '0';
             setTimeout(function() {
-                document.getElementById('ResultBox').style.display = 'none';
+                div.style.display = "none";
                 block1.style.filter = 'blur(0.0rem)';
 
-            }, 60);
+            }, 600);
         };
 
     }
@@ -149,12 +149,9 @@ let eventFun = (function() {
 
         count++;
     };
-
-    function eventListen() {
-        array.forEach((item, index) => {
-            item.textContent = "";
-            item.addEventListener("click", (e) => setOutput(e, index), { once: true });
-        });
-    }
-    return { setUser };
+    array.forEach((item, index) => {
+        item.textContent = "";
+        item.addEventListener("click", (e) => setOutput(e, index), { once: true });
+    });
+    return { result, array, setOutput, setUser, count };
 })();

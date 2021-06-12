@@ -26,15 +26,17 @@
 }
 
 body {
-    color: rgb(70, 112, 27);
-    background: antiquewhite;
-    font-weight: bold;
+    /* filter: saturate(180%) blur(20rem);    
+   filter:  blur(0);    
+  
+    */
+    backdrop-filter: blur(20rem);
 }
 
 h1 {
     color: brown;
     text-decoration: underline;
-    text-decoration-style: solid;
+    text-decoration-style: wavy;
 }
 
 label>input {
@@ -78,8 +80,6 @@ label>input {
     justify-content: center;
     align-items: center;
     font-size: 1.8rem;
-    color: coral;
-    background-color: rgb(241, 220, 241);
 }
 
 #gameSquare>section:nth-child(1)>div:nth-child(1) {

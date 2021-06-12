@@ -28,7 +28,6 @@
 body {
     color: rgb(70, 112, 27);
     background: antiquewhite;
-    font-weight: bold;
 }
 
 h1 {
@@ -79,7 +78,7 @@ label>input {
     align-items: center;
     font-size: 1.8rem;
     color: coral;
-    background-color: rgb(241, 220, 241);
+    background-color: fuchsia
 }
 
 #gameSquare>section:nth-child(1)>div:nth-child(1) {

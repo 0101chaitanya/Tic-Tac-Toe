@@ -26,15 +26,15 @@
 }
 
 body {
-    color: rgb(70, 112, 27);
-    background: antiquewhite;
-    font-weight: bold;
+    /* filter: saturate(180%) blur(20rem);    
+   filter:  blur(0);    
+  
+    */
+    backdrop-filter: blur(20rem);
 }
 
-h1 {
-    color: brown;
-    text-decoration: underline;
-    text-decoration-style: solid;
+#block1 {
+    /*    filter: blur(0.5rem); */
 }
 
 label>input {
@@ -69,17 +69,14 @@ label>input {
 }
 
 #gameSquare>section:nth-child(n)>div:nth-child(n) {
-    display: flex;
+    display: block;
     margin: auto;
     width: 3.8rem;
     height: 3.8rem;
     border-style: solid;
     border-width: 0.15rem;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.8rem;
-    color: coral;
-    background-color: rgb(241, 220, 241);
+    text-align: center;
+    top: 50%;
 }
 
 #gameSquare>section:nth-child(1)>div:nth-child(1) {

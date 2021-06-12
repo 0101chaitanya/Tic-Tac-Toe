@@ -1,57 +1,33 @@
 "use strict";
-
 let eventFun = (function() {
     let user1Selection, user2Selection, runningCharacter;
-    document.getElementById('1').textContent += ` `;
-    document.getElementById('2').textContent += ` `;
-
-    let runningNumber,
-        result;
-    let newArray;
-    let count;
-
-    let horizontalArray;
-    let verticalArray;
-    let diagonalArray;
-    let array;
-
+    let runningNumber = 0,
+        i, result;
 
     function setUser(given) {
-        localStorage.setItem("user1", given.value);
-
+        localStorage.setItem("user1Selection", given.value);
         document.querySelector(`form`).submit();
     }
+    user1Selection = localStorage.getItem("user1Selection");
+    user2Selection =
+        user1Selection != null ? (user1Selection === "X" ? "O" : "X") : null;
+    runningCharacter = user1Selection;
+    document.getElementById('1').textContent += ` ` + user1Selection || ' ';
+    document.getElementById('2').textContent += ` ` + user2Selection || ' ';
 
-    function init() {
-        runningNumber = 0;
-        user1Selection = localStorage.getItem("user1");
-        user2Selection =
-            user1Selection != null ? (user1Selection === "X" ? "O" : "X") : null;
-        runningCharacter = user1Selection;
-
-        document.getElementById('1').textContent += ` ` + user1Selection || ' ';
-        document.getElementById('2').textContent += ` ` + user2Selection || ' ';
-        array = Array.from(
-            document.getElementById("gameSquare").querySelectorAll("div")
-        );
-        newArray = Array(array.length).fill();
-        count = 0;
-
-        horizontalArray = undefined;
-        verticalArray = undefined;
-        diagonalArray = undefined;
-        eventListen();
-    }
-
-    if (localStorage.getItem("user1") !== null) {
-        init();
-    }
-
+    let array = Array.from(
+        document.getElementById("gameSquare").querySelectorAll("div")
+    );
 
     function switchRunChar() {
         runningCharacter = runningCharacter === "O" ? "X" : "O";
         runningNumber = runningNumber === 0 ? 1 : 0;
     }
+
+    function text(i) {
+        return array[i].textContent;
+    }
+    let newArray = Array(array.length).fill();
 
     function arrayCreator(index, incrementer) {
         return [
@@ -60,6 +36,11 @@ let eventFun = (function() {
             newArray[index + 2 * incrementer],
         ];
     }
+    let count = 0;
+
+    let horizontalArray;
+    let verticalArray;
+    let diagonalArray;
 
     function parser(arrayInput) {
         let arr = arrayInput.map((item, index) => {
@@ -74,21 +55,16 @@ let eventFun = (function() {
 
     function send(input) {
         let block1 = document.getElementById('block1');
-        block1.style.filter = 'blur(0.5rem)';
-        document.getElementById('ResultBox').style.display = 'block';
+        div.style.filter = 'blur(0.5rem)';
+        document.getElementById('gameSquare').style.display = 'none';
         document.getElementById('resultOut').textContent = input;
         let close = document.getElementById('closebtn');
         close.onclick = function() {
-            localStorage.clear();
-            //  init();
-            document.getElementById('gameSquare').submit();
             let div = this.parentElement;
             div.style.opacity = '0';
             setTimeout(function() {
-                document.getElementById('ResultBox').style.display = 'none';
-                block1.style.filter = 'blur(0.0rem)';
-
-            }, 60);
+                div.style.display = "none";
+            }, 600);
         };
 
     }
@@ -149,12 +125,9 @@ let eventFun = (function() {
 
         count++;
     };
-
-    function eventListen() {
-        array.forEach((item, index) => {
-            item.textContent = "";
-            item.addEventListener("click", (e) => setOutput(e, index), { once: true });
-        });
-    }
-    return { setUser };
+    array.forEach((item, index) => {
+        item.textContent = "";
+        item.addEventListener("click", (e) => setOutput(e, index), { once: true });
+    });
+    return { result, array, setOutput, setUser, count };
 })();

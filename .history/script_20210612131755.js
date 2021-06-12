@@ -88,7 +88,7 @@ let eventFun = (function() {
                 document.getElementById('ResultBox').style.display = 'none';
                 block1.style.filter = 'blur(0.0rem)';
 
-            }, 60);
+            }, 600);
         };
 
     }

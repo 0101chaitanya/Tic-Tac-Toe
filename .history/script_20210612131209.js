@@ -43,7 +43,7 @@ let eventFun = (function() {
         eventListen();
     }
 
-    if (localStorage.getItem("user1") !== null) {
+    if (localStorage.getItem("user1Selection") !== null) {
         init();
     }
 
@@ -85,10 +85,10 @@ let eventFun = (function() {
             let div = this.parentElement;
             div.style.opacity = '0';
             setTimeout(function() {
-                document.getElementById('ResultBox').style.display = 'none';
+                div.style.display = "none";
                 block1.style.filter = 'blur(0.0rem)';
 
-            }, 60);
+            }, 600);
         };
 
     }
